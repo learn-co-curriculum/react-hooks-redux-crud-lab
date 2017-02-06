@@ -1,4 +1,4 @@
-# Set List Lab
+# Yelpish Lab
 
 ## Objectives
 Implement a yelp like application with restaurants and reviews.
