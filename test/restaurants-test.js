@@ -97,7 +97,7 @@ describe('redux', () => {
     })
     expect(store.getState().restaurants[0].text).to.equal('Hello')
     expect(store.getState().restaurants[1].text).to.equal('ciao')
-
+    // ensure that each id is unique
     expect(new Set(ids).size === ids.length).to.equal(true)
   });
 })
