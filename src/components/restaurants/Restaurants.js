@@ -1,22 +1,20 @@
-import React, { Component } from 'react'
-import Restaurant from './Restaurant'
+import React, { Component } from 'react';
+import Restaurant from './Restaurant';
 
 class Restaurants extends Component {
-  constructor(props){
-    super(props)
-    this.state = {text: ''}
-  }
-  render(){
-    let storeState = this.props.store.getState()
-    let restaurants = storeState.restaurants.map((restaurant) => {
-      return <Restaurant id={restaurant.id} store={this.props.store} text={restaurant.text}/>
-    })
+  
+  render() {
+    const { store } = this.props;
+    const restaurants = store.getState().restaurants.map((restaurant, index) => {
+      return <Restaurant key={index} restaurant={restaurant} store={store} />
+    });
+    
     return(
       <ul>
         {restaurants}
       </ul>
-    )
+    );
   }
-}
+};
 
 export default Restaurants;
