@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
-import Review from './Review'
+import React, { Component } from 'react';
+import Review from './Review';
 
 class Reviews extends Component {
-  constructor(props){
-    super(props)
-    this.state = {text: ''}
-  }
-  render(){
-    let associatedReviews = this.props.store.getState().reviews.filter((review) => {
-      return review.restaurantId === this.props.restaurantId;
+
+  render() {
+    const { store, restaurantId } = this.props;
+    const associatedReviews = store.getState().reviews.filter(review => review.restaurantId === restaurantId);
+    const reviews = associatedReviews.map((review, index) => {
+      return <Review store={store} key={index} review={review} />
     })
-    let reviews = associatedReviews.map((review) => {
-      return <Review store={this.props.store} id={review.id} text={review.text}/>
-    })
-    return(
-      <ul>
-        {reviews}
-      </ul>
-    )
+
+    return (
+      <div>
+        <ul>
+          {reviews}
+        </ul>
+      </div>
+    );
   }
-}
+
+};
 
 export default Reviews;
