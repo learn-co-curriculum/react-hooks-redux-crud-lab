@@ -1,5 +1,6 @@
 import cuid from 'cuid';
-export const cuidFn = cuid
-export default function manageRestaurants(state, action){
+export const cuidFn = cuid;
+
+export default function manageRestaurants(state, action) {
 
 }
