@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Restaurants extends Component {
-  render(){
+  render() {
     return(
       <ul>
         Restaurants Component
       </ul>
-    )
+    );
   }
-}
+};
 
 export default Restaurants;
