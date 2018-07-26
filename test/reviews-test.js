@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { configure, shallow, mount } from 'enzyme';
 import RestaurantInput from '../src/components/restaurants/RestaurantInput';
 import sinon from 'sinon';
 import { renderer } from '../src/index';
@@ -12,6 +12,9 @@ import Restaurant from '../src/components/restaurants/Restaurant';
 import ReviewInput from '../src/components/reviews/ReviewInput';
 import Reviews from '../src/components/reviews/Reviews';
 import Review from '../src/components/reviews/Review';
+import Adapter from 'enzyme-adapter-react-16'
+
+configure({ adapter: new Adapter() })
 
 describe('ReviewInput Component', () => {
   it('displays the ReviewInput component as a child of each Restaurant Component', () => {
@@ -95,7 +98,7 @@ describe('Reviews Component', () => {
         { id: 1, text: 'hello' },
         { id: 2, text: 'goodbye' },
         { id: 3, text: 'ciao' }
-      ], 
+      ],
       reviews: [
         { id: 1, restaurantId: 1, text: 'it was good' },
         { id: 2, restaurantId: 1, text: 'it was good' }
@@ -114,7 +117,7 @@ describe('Reviews Component', () => {
         { id: 1, text: 'hello' },
         { id: 2, text: 'goodbye' },
         { id: 3, text: 'ciao' }
-      ], 
+      ],
       reviews: [
         { id: 1, restaurantId: 1, text: 'it was good' },
         { id: 2, restaurantId: 1, text: 'it was very good' },
@@ -162,7 +165,7 @@ describe('Reviews Component', () => {
     form.simulate('submit',  { preventDefault() {} });
     input.simulate('change', { target: { value: 'ciao' } });
     form.simulate('submit',  { preventDefault() {} });
-    
+
     let review = store.getState().reviews[1];
     const ReviewComponent = shallow(<Review store={store} review={review} />)
     let deleteButton = ReviewComponent.find('button').first();

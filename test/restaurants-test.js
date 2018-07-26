@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { configure, shallow, mount } from 'enzyme'
 import RestaurantInput from '../src/components/restaurants/RestaurantInput'
 import sinon from 'sinon'
 import { renderer } from '../src/index'
@@ -9,7 +9,9 @@ import manageRestaurant, { cuidFn } from '../src/reducers/manageRestaurant'
 import { App } from '../src/App'
 import Restaurants from '../src/components/restaurants/Restaurants'
 import Restaurant from '../src/components/restaurants/Restaurant'
+import Adapter from 'enzyme-adapter-react-16'
 
+configure({ adapter: new Adapter() })
 
 describe('RestaurantInput', () => {
   it('has an text input field', () => {
@@ -93,7 +95,7 @@ describe('Restaurant Component with Redux', () => {
     sinon.stub(store, 'getState').returns({
       restaurants: [
         {id: 1, text: 'hello'},
-        {id: 2, text: 'goodbye'}, 
+        {id: 2, text: 'goodbye'},
         {id: 3, text: 'ciao'}
       ]
     });
