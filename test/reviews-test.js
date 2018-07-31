@@ -77,7 +77,6 @@ describe('ReviewInput Component', () => {
     const wrapper = shallow(<Restaurant store={store} restaurant={restaurant} />)
     let review = wrapper.find(ReviewInput);
     expect(review.props().restaurantId).to.equal(restaurant.id);
-=======
     store.dispatch({type: 'ADD_RESTAURANT', text: 'The Helm'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
@@ -92,7 +91,6 @@ describe('ReviewInput Component', () => {
     textField.simulate('change', { target: { value: 'Hello' } });
     reviewForm.simulate('submit',  { preventDefault() {} });
     expect(store.getState().reviews[0].restaurantId).to.equal(restaurantId);
-=======
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Burger Loft'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
