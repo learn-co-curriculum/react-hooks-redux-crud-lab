@@ -156,7 +156,7 @@ describe('Reviews Component', () => {
     expect(new Set(ids).size === ids.length).to.equal(true);
   });
 
-  it('has a button that dispatches a DELETE_RESTAURANT action when clicked', ()=> {
+  it('has a button that dispatches a DELETE_REVIEW action when clicked', ()=> {
     const store = createStore(manageRestaurant);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'The Kings Head'})
     let restaurantId = store.getState().restaurants[0].id
