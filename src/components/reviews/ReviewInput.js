@@ -1,31 +1,20 @@
 import React, { Component } from 'react';
-import Reviews from './Reviews';
 
 class ReviewInput extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      text: '',
-    };
+  state = {
+    text: ''
   }
 
-  handleOnChange(event) {
+  handleOnChange = event => {
     this.setState({
       text: event.target.value,
     });
   }
 
-  handleOnSubmit(event) {
+  handleOnSubmit = event => {
     event.preventDefault();
-    this.props.store.dispatch({
-      type: 'ADD_REVIEW',
-      review: {
-        text: this.state.text,
-        restaurantId: this.props.restaurantId,
-      },
-    });
+    this.props.addReview({text: this.state.text, restaurantId: this.props.restaurantId });
     this.setState({
       text: '',
     });
@@ -34,17 +23,14 @@ class ReviewInput extends Component {
   render() {
     return (
      <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)} >
+        <form onSubmit={this.handleOnSubmit} >
           <label>Add Review</label>
-          <input 
+          <input
             type="text"
             value={this.state.text}
-            onChange={(event) => this.handleOnChange(event)} />
+            onChange={this.handleOnChange} />
           <input type="submit" />
         </form>
-        <Reviews 
-          store={this.props.store} 
-          restaurantId={this.props.restaurantId} />
       </div>
     );
   }

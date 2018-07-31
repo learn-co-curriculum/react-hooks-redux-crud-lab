@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './App';
-import createStore from './createStore'
+import App from './App';
 import manageRestaurant from './reducers/manageRestaurant'
+
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
 const store = createStore(manageRestaurant)
-export const renderer = {render: render}
 
 
-function render(){
-
-  ReactDOM.render(
-    <App store={store} />,
-    document.getElementById('root')
-  );
-}
-
-
-
-store.dispatch({type: 'buddy'})
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+document.getElementById('root')
+)
