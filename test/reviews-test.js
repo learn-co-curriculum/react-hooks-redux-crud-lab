@@ -73,10 +73,10 @@ describe('ReviewInput Component', () => {
     form.simulate('submit',  { preventDefault() {} });
 
     expect(store.getState().reviews.length).to.equal(1);
-    const restaurant = { id: 1, text: 'hello' };
-    const wrapper = shallow(<Restaurant store={store} restaurant={restaurant} />)
-    let review = wrapper.find(ReviewInput);
-    expect(review.props().restaurantId).to.equal(restaurant.id);
+  });
+
+  it('sets a property of restaurantId on the review component from the parent components id', () => {
+    const store = createStore(manageRestaurant);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'The Helm'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
@@ -84,13 +84,10 @@ describe('ReviewInput Component', () => {
     let review = wrapper.find(ReviewInput);
 
     expect(review.props().restaurantId).to.equal(store.getState().restaurants[0].id);
-    let restaurantId = 34039;
-    const wrapper = shallow(<ReviewInput store={store} restaurantId={restaurantId}/>)
-    let reviewForm = wrapper.find('form');
-    let textField =  wrapper.find('input').first();
-    textField.simulate('change', { target: { value: 'Hello' } });
-    reviewForm.simulate('submit',  { preventDefault() {} });
-    expect(store.getState().reviews[0].restaurantId).to.equal(restaurantId);
+  });
+
+  it('associates the review with the restaurant with a foreign key on the review', () => {
+    const store = createStore(manageRestaurant);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Burger Loft'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>);
