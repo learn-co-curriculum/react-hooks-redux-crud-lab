@@ -71,6 +71,6 @@ learned all you need to know to complete what is required to _Update_ an item.
 Think about how this would be done. You would want to probably include an
 additional button with each restaurant and review that, when clicked, will
 open an input where a user could modify the contents of a specific item. When
-sent to your reducer, instead of _filtering_ you might consider _mapping_ - i.e.
+sent to your reducer, instead of _filtering_ you might consider _mapping_ -- i.e.
 an action where all reviews are returned, but if a review's id matches, the
 _newly_ submitted content is returned instead.
