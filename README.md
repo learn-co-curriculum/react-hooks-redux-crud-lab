@@ -62,7 +62,7 @@ Once all tests are passing, you'll be able to create and delete restaurants
 _and_ their specific reviews. Take note of the structure of this app -
 containers can end up _anywhere_ in an app, even nested way down the component
 tree. This set up can feel a bit counterintuitive initially since we could have
-a presentational component has a container component as a child, but the benefit
+a presentational component that has a container component as a child, but the benefit
 is that _none_ of the non-container components have any code related to Redux!
 They're just firing props!
 
