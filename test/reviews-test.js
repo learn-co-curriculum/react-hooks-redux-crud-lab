@@ -39,7 +39,7 @@ describe('ReviewInput Component', () => {
     const wrapper = shallow(<ReviewInput />);
     expect(wrapper.state('text')).to.equal('');
     let input = wrapper.find('input').first();
-    input.simulate('change', { target: { value: 'Hello' } });
+    input.simulate('change', { target: { value: 'Hello', name: 'text', id: 'text' } });
     expect(wrapper.state('text')).to.equal('Hello');
   })
 
@@ -52,7 +52,7 @@ describe('ReviewInput Component', () => {
     let input = wrapper.find(Restaurant).find('input').first()
     let form = wrapper.find(Restaurant).find('form');
 
-    input.simulate('change', { target: { value: 'Better Ingredients' } });
+    input.simulate('change', { target: { value: 'Better Ingredients', name: 'text', id: 'text' } });
     form.simulate('submit',  { preventDefault() {} });
 
     wrapper.update()
@@ -69,7 +69,7 @@ describe('ReviewInput Component', () => {
     let input = wrapper.find(Restaurant).find('input').first()
     let form = wrapper.find(Restaurant).find('form');
 
-    input.simulate('change', { target: { value: 'Better Pizza' } });
+    input.simulate('change', { target: { value: 'Better Pizza', name: 'text', id: 'text' } });
     form.simulate('submit',  { preventDefault() {} });
 
     expect(store.getState().reviews.length).to.equal(1);
@@ -95,7 +95,7 @@ describe('ReviewInput Component', () => {
     let reviewForm = wrapper.find(Restaurant).find('form');
     let textField =  wrapper.find(Restaurant).find('input').first();
 
-    textField.simulate('change', { target: { value: 'Hello' } });
+    textField.simulate('change', { target: { value: 'Hello', name: 'text', id: 'text' } });
     reviewForm.simulate('submit',  { preventDefault() {} });
 
     expect(store.getState().reviews[0].restaurantId).to.equal(store.getState().restaurants[0].id);
@@ -145,10 +145,10 @@ describe('Reviews Component', () => {
     let reviewForm = wrapper.find(Restaurant).find('form');
     let textField =  wrapper.find(Restaurant).find('input').first();
 
-    textField.simulate('change', { target: { value: 'Walked for miles at night for this place' } });
+    textField.simulate('change', { target: { value: 'Walked for miles at night for this place', name: 'text', id: 'text' } });
     reviewForm.simulate('submit',  { preventDefault() {} });
 
-    textField.simulate('change', { target: { value: 'Totally worth it' } });
+    textField.simulate('change', { target: { value: 'Totally worth it', name: 'text', id: 'text' } });
     reviewForm.simulate('submit',  { preventDefault() {} });
 
     let ids = store.getState().restaurants.map(restaurant => restaurant.id);
@@ -182,9 +182,9 @@ describe('Reviews Component', () => {
     let form = wrapper.find(Restaurant).find('form');
     let input = wrapper.find(Restaurant).find('input').first();
 
-    input.simulate('change', { target: { value: 'Pricey' } });
+    input.simulate('change', { target: { value: 'Pricey', name: 'text', id: 'text' } });
     form.simulate('submit',  { preventDefault() {} });
-    input.simulate('change', { target: { value: 'I would rather walk 4 miles at night to the next town' } });
+    input.simulate('change', { target: { value: 'I would rather walk 4 miles at night to the next town', name: 'text', id: 'text' } });
     form.simulate('submit',  { preventDefault() {} });
 
     let deleteButton = wrapper.find('button').last();

@@ -28,7 +28,7 @@ describe('RestaurantInput', () => {
     const wrapper = shallow(<RestaurantInput />);
     expect(wrapper.state('text')).to.equal('');
     let input = wrapper.find('input').first();
-    input.simulate('change', { target: { value: 'Hello' } });
+    input.simulate('change', { target: { value: 'Hello', name: 'text', id: 'text' } });
     expect(wrapper.state('text')).to.equal('Hello');
   });
 
@@ -40,7 +40,7 @@ describe('RestaurantInput', () => {
     let input = wrapper.find('input').first();
 
     // console.log(store.getState());
-    input.simulate('change', { target: { value: 'Hello' } })
+    input.simulate('change', { target: { value: 'Hello', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} })
     // console.log(store.getState());
     expect(store.getState().restaurants[0].text).to.equal('Hello')
@@ -81,9 +81,9 @@ describe('RestaurantInput Component with Redux', () => {
     let form = wrapper.find('form')
     let input = wrapper.find('input').first()
 
-    input.simulate('change', { target: { value: 'Sbarro' } })
+    input.simulate('change', { target: { value: 'Sbarro', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} })
-    input.simulate('change', { target: { value: 'La Villa' } })
+    input.simulate('change', { target: { value: 'La Villa', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} })
 
     let ids = store.getState().restaurants.map((restaurant) => {
@@ -105,7 +105,7 @@ describe('Restaurant Component with Redux', () => {
     let form = wrapper.find('form')
     let input = wrapper.find('input').first()
 
-    input.simulate('change', { target: { value: 'Blooming Hill Farm' } })
+    input.simulate('change', { target: { value: 'Blooming Hill Farm', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} })
 
     wrapper.update()
@@ -138,10 +138,10 @@ describe('Restaurant Component with Redux', () => {
     let form = wrapper.find('form');
     let input = wrapper.find('input').first();
 
-    input.simulate('change', { target: { value: 'Bagel Pub' } });
+    input.simulate('change', { target: { value: 'Bagel Pub', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} });
 
-    input.simulate('change', { target: { value: 'Chip Shop' } });
+    input.simulate('change', { target: { value: 'Chip Shop', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} });
 
     let restaurant = store.getState().restaurants[1];
@@ -155,7 +155,7 @@ describe('Restaurant Component with Redux', () => {
     expect(store.getState().restaurants.length).to.equal(1);
     expect(store.getState().restaurants[0].text).to.equal('Chip Shop');
 
-    input.simulate('change', { target: { value: 'Song' } });
+    input.simulate('change', { target: { value: 'Song', name: 'text', id: 'text' }});
     form.simulate('submit',  { preventDefault() {} });
 
     deleteButton = wrapper.find('button').last();
