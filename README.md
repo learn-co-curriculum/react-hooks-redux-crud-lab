@@ -42,13 +42,15 @@ file for you. The library will generate a unique id for you:
 For simplicity with testing, restaurant data stored in Redux should have `text`
 and `id` keys.
 
-
 2. You will also need to create a reviews resource. Similar to the components
 for Restaurant, users should be able to create a review that is specifically
 associated with the related restaurant, and those reviews should be displayed
 underneath the related restaurant. Because reviews are associated to specific
 restaurants, the __ReviewsContainer__ should be nested within the __Restaurant__
 component. Users should also be able to delete a specific review.
+
+**Note**: When building your input forms, only use basic `input` elements for
+this lab's tests.
 
 Since you'll need to be able to associate reviews to restaurants, _and_ delete
 specific reviews, reviews stored in Redux should have a `text` key for the
