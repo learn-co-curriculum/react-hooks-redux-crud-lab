@@ -25,9 +25,11 @@ describe('ReviewInput Component', () => {
     expect(wrapper.find(ReviewInput)).to.have.length(1);
   });
 
-  it('has a text input field', () => {
+  it('has two text input fields, one for review input, and another for submitting', () => {
     const wrapper = shallow(<ReviewInput />);
     expect(wrapper.find('input').first().type()).to.equal('input');
+    expect(wrapper.find('input').last().type()).to.equal('input');
+    expect(wrapper.find('input').length).to.eql(2)
   });
 
   it('has an initial state with text key set to empty string', () => {
