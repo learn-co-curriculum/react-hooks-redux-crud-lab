@@ -24,7 +24,7 @@ describe('RestaurantInput', () => {
     expect(wrapper.state('text')).to.equal('');
   });
 
-  it('changes the state on a keydown', () => {
+  it('changes the state with an onChange event', () => {
     const wrapper = shallow(<RestaurantInput />);
     expect(wrapper.state('text')).to.equal('');
     let input = wrapper.find('input').first();

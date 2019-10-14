@@ -35,7 +35,7 @@ describe('ReviewInput Component', () => {
     expect(wrapper.state('text')).to.equal('');
   });
 
-  it('has changes the state on a keydown', () => {
+  it('changes the state with an onChange event', () => {
     const wrapper = shallow(<ReviewInput />);
     expect(wrapper.state('text')).to.equal('');
     let input = wrapper.find('input').first();
