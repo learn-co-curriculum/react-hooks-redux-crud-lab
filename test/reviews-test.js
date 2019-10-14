@@ -75,7 +75,7 @@ describe('ReviewInput Component', () => {
     expect(store.getState().reviews.length).to.equal(1);
   });
 
-  it('sets a property of restaurantId on the review component from the parent components id', () => {
+  it('sets a property of restaurantId on the review input component from the parent components id', () => {
     const store = createStore(manageRestaurant);
     store.dispatch({type: 'ADD_RESTAURANT', text: 'The Helm'})
 
