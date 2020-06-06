@@ -13,7 +13,7 @@ and reviews belonging to a restaurant. Similar to the previous Redux delete lab,
 implement container components to connect to your Redux store - one for
 restaurants and one for reviews.
 
-**Hint**: Container components can be nested as children just as any other
+**Hint**: Container components can be nested as children in the same way as any other
 component, even if they aren't actually displaying any visual content.
 
 ## Instructions
