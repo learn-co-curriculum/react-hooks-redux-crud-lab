@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReviewsContainer from '../../containers/ReviewsContainer'
+import ReviewsContainer from '../../containers/ReviewsContainer';
 
 class Restaurant extends Component {
 
