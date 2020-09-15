@@ -1,13 +1,10 @@
 import { expect } from 'chai';
 import React from 'react';
 import { configure, shallow, mount } from 'enzyme';
-import RestaurantInput from '../src/components/restaurants/RestaurantInput';
-import sinon from 'sinon';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 import manageRestaurant, { cuidFn } from '../src/reducers/manageRestaurant';
 import App from '../src/App';
-import Restaurants from '../src/components/restaurants/Restaurants';
 import Restaurant from '../src/components/restaurants/Restaurant';
 import ReviewInput from '../src/components/reviews/ReviewInput';
 import Reviews from '../src/components/reviews/Reviews';
@@ -37,7 +34,7 @@ describe('ReviewInput Component', () => {
     expect(wrapper.state('text')).to.equal('');
   });
 
-  it('changes the state with an onChange event', () => {
+  it('changes the component state with an onChange event', () => {
     const wrapper = shallow(<ReviewInput />);
     expect(wrapper.state('text')).to.equal('');
     let input = wrapper.find('input').first();
