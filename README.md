@@ -1,5 +1,3 @@
-<!-- CREATE TESTS FOR REDUCER?? -->
-
 # Create and Delete Lab
 
 ## Objectives
