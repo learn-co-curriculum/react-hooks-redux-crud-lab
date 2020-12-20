@@ -66,28 +66,14 @@ describe("reducer", () => {
             { id: "2", name: "test 2" },
           ],
         },
-        {
-          type: "restaurants/restaurantRemoved",
-          payload: "2",
-        }
+        restaurantRemoved("2")
       )
     ).toEqual({
-      entities: expect.arrayContaining([
-        expect.objectContaining({
-          name: "test",
-          id: expect.any(String),
-        }),
-      ]),
+      entities: [{ id: "1", name: "test" }],
     });
 
     expect(
-      restaurantsReducer(
-        { entities: [] },
-        {
-          type: "restaurants/restaurantRemoved",
-          payload: "1",
-        }
-      )
+      restaurantsReducer({ entities: [] }, restaurantRemoved("1"))
     ).toEqual({
       entities: [],
     });

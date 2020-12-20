@@ -5,8 +5,8 @@ function Restaurant({ restaurant }) {
   return (
     <div>
       <li>
-        {restaurant.text}
-        <button> X </button>
+        {restaurant.name}
+        <button> Delete Restaurant </button>
         <ReviewsContainer restaurant={restaurant} />
       </li>
     </div>

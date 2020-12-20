@@ -3,8 +3,8 @@ import React from "react";
 function Review({ review }) {
   return (
     <div>
-      <li>{review.text}</li>
-      <button> X </button>
+      <li>{review.comment}</li>
+      <button> Delete Review </button>
     </div>
   );
 }

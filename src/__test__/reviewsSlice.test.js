@@ -7,7 +7,10 @@ describe("actions", () => {
   test("reviewAdded returns an action with a type of 'reviews/reviewAdded' and a payload of the new review comment and restaurantId", () => {
     expect(reviewAdded({ restaurantId: "1", comment: "test" })).toEqual({
       type: "reviews/reviewAdded",
-      payload: "test",
+      payload: {
+        comment: "test",
+        restaurantId: "1",
+      },
     });
   });
 
@@ -72,10 +75,7 @@ describe("reducer", () => {
             { id: "2", restaurantId: "1", comment: "test 2" },
           ],
         },
-        {
-          type: "reviews/reviewRemoved",
-          payload: "2",
-        }
+        reviewRemoved("2")
       )
     ).toEqual({
       entities: expect.arrayContaining([
@@ -87,15 +87,7 @@ describe("reducer", () => {
       ]),
     });
 
-    expect(
-      reviewsReducer(
-        { entities: [] },
-        {
-          type: "reviews/reviewRemoved",
-          payload: "1",
-        }
-      )
-    ).toEqual({
+    expect(reviewsReducer({ entities: [] }, reviewRemoved("1"))).toEqual({
       entities: [],
     });
   });
