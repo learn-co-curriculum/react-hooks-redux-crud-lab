@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import RestaurantsContainer from './containers/RestaurantsContainer';
+import React from "react";
+import RestaurantsContainer from "./features/restaurants/RestaurantsContainer";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <RestaurantsContainer />
-      </div>
-    );
-  }
-};
+function App() {
+  return (
+    <div>
+      <RestaurantsContainer />
+    </div>
+  );
+}
 
 export default App;
