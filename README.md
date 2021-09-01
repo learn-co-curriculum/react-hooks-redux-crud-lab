@@ -1,9 +1,8 @@
 # Create and Delete Lab
 
-## Objectives
+## Learning Goals
 
-- Create a Yelp-like application where users can create and delete both
-  restaurants and reviews of each restaurant.
+- Create a complex application using React and Redux
 
 ## Introduction
 
