@@ -13,7 +13,7 @@ implement components to connect each resource to your Redux store.
 
 ## Instructions
 
-#### Restaurants
+### Restaurants
 
 Start off by working on the `restaurantsSlice` and create these actions:
 
@@ -29,17 +29,16 @@ to create new restaurants. Your form should have two inputs: a text input to
 enter the name of the restaurant with a label of "Name", and an input with type
 equal `submit` and the text of "Add Restaurant".
 
-Next, you will build out the `RestaurantsContainer` component that will
-connect to Redux and pass the appropriate props down to its children. You will
-then want to create a `Restaurants` component that renders a list of
-restaurants, and a `Restaurant` component that is responsible for each
-individual restaurant.
+Next, you will build out the `RestaurantsContainer` component that will connect
+to Redux and pass the appropriate props down to its children. You will then want
+to create a `Restaurants` component that renders a list of restaurants, and a
+`Restaurant` component that is responsible for each individual restaurant.
 
 Users should also be able to delete restaurants, so you will need to wire up the
 button rendered in the `Restaurant` component with the text of "Delete
 Restaurant".
 
-#### Reviews
+### Reviews
 
 Next you will work on the reviews resource. Since you'll need to be able to
 associate reviews to restaurants, _and_ delete specific reviews, reviews stored
@@ -61,14 +60,14 @@ Once you've created your `reviewsSlice`, export and use its reducer in the
 
 **Note**: Although each review belongs to a specific restaurant, that
 relationship should be implemented using the `restaurantId` key, _not_ in the
-structure of the store's state. In order to get the tests passing, the state will
-need to be structured as follows:
+structure of the store's state. In order to get the tests passing, the state
+will need to be structured as follows:
 
 ```js
-  {
-    restaurants: { entities: [] },
-    reviews: { entities: [] }
-  }
+{
+  restaurants: { entities: [] },
+  reviews: { entities: [] }
+}
 ```
 
 Next, work on the components. You will make a `ReviewInput` component that will
@@ -84,11 +83,11 @@ text of "Delete Review".
 
 ## Conclusion
 
-Once all tests are passing, you'll be able to create and delete restaurants _and_
-their specific reviews.
+Once all tests are passing, you'll be able to create and delete restaurants
+_and_ their specific reviews.
 
-**Bonus**: Implement **edit** functionality for restaurants and reviews. You will
-probably want to include an additional button with each restaurant and review
-that, when clicked, will open an input where a user could modify the contents of
-a specific item. You will then need to dispatch an **update** action to the
-reducer to update the store.
+**Bonus**: Implement **edit** functionality for restaurants and reviews. You
+will probably want to include an additional button with each restaurant and
+review that, when clicked, will open an input where a user could modify the
+contents of a specific item. You will then need to dispatch an **update** action
+to the reducer to update the store.
